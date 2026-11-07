@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Tour Du Lịch - Vietjet Travel</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= MAIN HEADER ================= -->
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" title="Vietjet Travel">
+                <img src="Images/VietJet-Air-logo.png" alt="Vietjet Logo">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Trang Chủ</a>
+                <a href="flights.html" class="nav-link">Chuyến Bay</a>
+                <a href="tours.html" class="nav-link active">Tour Du Lịch</a>
+                <a href="cart.html" class="nav-link">Đơn Hàng</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="hotline-pill">
+                    <span>📞 Hotline: 1900 1886</span>
+                </div>
+                <a href="cart.html" class="cart-btn" title="Xem giỏ hàng">
+                    🛒
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= BREADCRUMB ================= -->
+    <div style="background-color: var(--bg-light); padding: 14px 0; border-bottom: 1px solid var(--border-color); font-size: 13px;">
+        <div class="container">
+            <a href="index.html" style="color: var(--text-muted);">Trang Chủ</a> &nbsp;/&nbsp; 
+            <a href="tours.html" style="color: var(--text-muted);">Tour Du Lịch</a> &nbsp;/&nbsp; 
+            <span style="color: var(--primary); font-weight: 700;">Chi Tiết Tour</span>
+        </div>
+    </div>
+
+    <!-- ================= MAIN TOUR DETAIL ================= -->
+    <main class="container detail-container">
+        <div id="tour-detail-content">
+
+            <!-- HEADER TOUR: TÊN, HÃNG, ẢNH THUMBNAIL 600x400 -->
+            <div class="detail-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                    <div>
+                        <span id="tour-organizer-display" style="font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase;">Vietjet Holidays</span>
+                        <h1 id="tour-name-display" style="font-size: 28px; font-weight: 800; color: var(--text-main); margin-top: 4px;">Đang tải thông tin tour...</h1>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 13px; color: var(--text-muted);">Thời lượng:</span>
+                        <div id="tour-duration-display" style="font-size: 20px; font-weight: 800; color: var(--primary);">4 Ngày 3 Đêm</div>
+                    </div>
+                </div>
+
+                <!-- Ảnh Thumbnail 600x400 chuẩn chất lượng cao -->
+                <div style="width: 100%; border-radius: var(--radius-lg); overflow: hidden; max-height: 480px; margin-bottom: 28px; box-shadow: var(--shadow-sm);">
+                    <img id="tour-thumb-img" src="" alt="Tour Image" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- THÔNG TIN CHUYẾN BAY KẾT HỢP TRONG TOUR -->
+                <h3 style="font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 16px;">
+                    ✈️ Thông Tin Chuyến Bay Đi & Về
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; background-color: var(--bg-light); padding: 20px; border-radius: var(--radius-md); margin-bottom: 24px;">
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Hãng Hàng Không</div>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                            <img id="tour-airline-logo" src="" alt="" style="height: 28px; object-fit: contain;">
+                            <strong id="tour-airline-name">VietJet Air</strong>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Loại Tàu Bay</div>
+                        <div style="margin-top: 4px;"><strong id="tour-aircraft-type" style="color: var(--primary);">Airbus A321neo</strong></div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Thời Gian Bay</div>
+                        <div style="margin-top: 4px;"><strong id="tour-flight-duration">1h 20m</strong></div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Hành Trình</div>
+                        <div style="margin-top: 4px;">
+                            <strong id="tour-dep-city">TP.HCM</strong> ➔ <strong id="tour-dest-city">Đà Nẵng</strong>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Ngày Khởi Hành</div>
+                        <div style="margin-top: 4px;">
+                            <strong id="tour-dep-date">2026-11-20</strong> (<span id="tour-dep-time">07:15</span>)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dịch vụ bao gồm -->
+                <div style="background-color: #ecfdf5; border-left: 4px solid var(--success); padding: 16px; border-radius: 4px;">
+                    <div style="font-weight: 700; color: #065f46; margin-bottom: 4px;">✨ Dịch vụ trọn gói bao gồm:</div>
+                    <div id="tour-services-display" style="color: #047857; font-size: 14px;">Khách sạn 4 sao, vé cáp treo, xe đưa đón, ăn uống và hướng dẫn viên</div>
+                </div>
+            </div>
+
+            <!-- LỊCH TRÌNH CHUYẾN ĐI (DAY-BY-DAY ITINERARY) -->
+            <div class="detail-card">
+                <h2 class="detail-title">Lịch Trình Chuyến Đi Chi Tiết</h2>
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
+                    Chương trình du lịch được thiết kế chỉn chu, mang đến những trải nghiệm văn hóa và nghỉ dưỡng đáng nhớ nhất:
+                </p>
+
+                <!-- Timeline Container -->
+                <div id="itinerary-timeline-container" class="timeline-wrap">
+                    <!-- Sẽ được render động từ JSON trong SQLite -->
+                </div>
+
+                <!-- ĐẶT TOUR NGAY BOX -->
+                <div style="margin-top: 36px; padding: 24px; background-color: var(--primary-light); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(238, 29, 35, 0.2);">
+                    <div>
+                        <span style="font-size: 13px; color: var(--text-muted);">Giá tour trọn gói / khách:</span>
+                        <div id="tour-price-display" style="font-size: 26px; font-weight: 800; color: var(--primary);">4.990.000 ₫</div>
+                    </div>
+
+                    <button type="button" id="btn-add-tour-to-cart" class="btn btn-primary" style="padding: 14px 32px; font-size: 16px;">
+                        🛒 Chọn Tour Này & Lưu Vào Giỏ Hàng
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="main-footer">
+        <div class="container footer-bottom">
+            <p>© 2026 Vietjet Travel. Toàn bộ bản quyền được bảo lưu.</p>
+            <p>Hệ thống đặt tour du lịch Vietjet Holidays</p>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/tour-detail.js"></script>
+</body>
+</html>

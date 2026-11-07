@@ -1,0 +1,1322 @@
+/**
+ * ============================================================
+ * VIETJET TRAVEL - MAIN STYLESHEET (css/style.css)
+ * Tông màu: Nền trắng sáng, màu chủ đạo đỏ (#ee1d23), vàng (#ffdd00)
+ * ============================================================
+ */
+
+:root {
+    --primary: #ee1d23;
+    --primary-hover: #c41318;
+    --primary-light: #fff0f1;
+    --secondary: #ffdd00;
+    --secondary-hover: #e6c700;
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-subtle: #f1f3f5;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+    --border-color: #e5e7eb;
+    --border-focus: #ee1d23;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(238, 29, 35, 0.12);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ================= CONTAINER FULL-WIDTH (DÀN TRẢI 100% CHIỀU NGANG) ================= */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 48px;
+    box-sizing: border-box;
+}
+
+/* ================= HEADER & NAV ================= */
+.main-header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    width: 100%;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+    width: 100%;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.brand-logo img {
+    height: 100px;
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.brand-logo:hover img {
+    transform: scale(1.04);
+}
+
+.brand-title {
+    display: none; /* Ẩn chữ text thừa để hiển thị duy nhất 1 logo thương hiệu */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-main);
+    padding: 8px 4px;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.cart-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.cart-btn:hover {
+    background-color: var(--primary);
+    color: var(--bg-white);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--primary);
+    color: var(--bg-white);
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-white);
+}
+
+.hotline-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-white);
+    box-shadow: 0 4px 12px rgba(238, 29, 35, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(238, 29, 35, 0.35);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: var(--radius-sm);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* ================= HERO & SEARCH WIDGET ================= */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    padding: 48px 0 64px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-banner-content {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 36px auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: var(--radius-full);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-title {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.hero-title span {
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* Booking Widget Box */
+.booking-widget-box {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    padding: 28px 32px;
+    border: 1px solid rgba(238, 29, 35, 0.12);
+    position: relative;
+}
+
+.trip-type-selector {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+}
+
+.trip-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+}
+
+.trip-radio-label input[type="radio"] {
+    accent-color: var(--primary);
+    width: 18px;
+    height: 18px;
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-family: inherit;
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(238, 29, 35, 0.15);
+}
+
+.form-control:disabled {
+    background-color: var(--bg-subtle);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ================= SECTION HEADERS ================= */
+.section-wrapper {
+    padding: 64px 0;
+}
+
+.section-wrapper.bg-light {
+    background-color: var(--bg-light);
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.section-title-wrap {
+    max-width: 650px;
+}
+
+.section-badge {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.3;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+/* ================= TOURS GRID (8 TOURS 600x400) ================= */
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    width: 100%;
+}
+
+.tour-card {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(238, 29, 35, 0.3);
+}
+
+.tour-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 600 / 400; /* Chuẩn tỉ lệ 600x400 theo yêu cầu */
+    overflow: hidden;
+}
+
+.tour-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tour-card:hover .tour-thumb {
+    transform: scale(1.05);
+}
+
+.tour-duration-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--bg-white);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(4px);
+}
+
+.tour-airline-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--bg-white);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+.tour-body {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tour-organizer {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.tour-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 44px;
+}
+
+.tour-services {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tour-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-color);
+}
+
+.tour-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.tour-price-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-price-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.tour-price {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+.tour-action-btn {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    background-color: var(--primary);
+    color: var(--bg-white);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    border: none;
+    box-shadow: 0 2px 6px rgba(238, 29, 35, 0.2);
+    box-sizing: border-box;
+}
+
+.tour-action-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 14px rgba(238, 29, 35, 0.35);
+    transform: translateY(-2px);
+    color: var(--bg-white);
+}
+
+/* ================= AIRLINES LOGO SECTION ================= */
+.airlines-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.airline-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.airline-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(238, 29, 35, 0.12);
+    transform: translateY(-4px);
+}
+
+.airline-card img {
+    height: 46px;
+    max-width: 140px;
+    object-fit: contain;
+}
+
+.airline-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.airline-hint {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ================= 2-COLUMN LAYOUT (FLIGHTS & TOURS) ================= */
+.page-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 36px;
+    width: 100%;
+    padding: 36px 0 64px 0;
+}
+
+/* Sidebar Filters */
+.filter-sidebar {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    height: fit-content;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 96px;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.filter-reset-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.filter-group {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.filter-group-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.filter-option input[type="radio"],
+.filter-option input[type="checkbox"] {
+    accent-color: var(--primary);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Right Content List */
+.content-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-count {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.results-count span {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+/* Flight Ticket Card */
+.flight-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 24px;
+    align-items: center;
+}
+
+.flight-card:hover {
+    border-color: rgba(238, 29, 35, 0.4);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.flight-airline-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.flight-airline-logo {
+    height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.flight-airline-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.flight-number-tag {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.flight-schedule-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.time-box {
+    text-align: center;
+}
+
+.time-display {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.city-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.flight-route-line {
+    flex-grow: 1;
+    margin: 0 24px;
+    text-align: center;
+    position: relative;
+}
+
+.duration-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.route-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 18px;
+    position: relative;
+}
+
+.route-arrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.route-arrow span {
+    background-color: var(--bg-white);
+    padding: 0 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.plane-type-tag {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+.flight-pricing-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    border-left: 1px dashed var(--border-color);
+    padding-left: 24px;
+}
+
+.flight-price-from {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.flight-main-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* ================= FLIGHT DETAIL & TOUR DETAIL ================= */
+.detail-container {
+    padding: 40px 0 64px 0;
+}
+
+.detail-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.detail-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+/* Class Selection Grid */
+.class-selection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.class-card {
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.class-card:hover {
+    border-color: rgba(238, 29, 35, 0.4);
+}
+
+.class-card.selected {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.class-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.class-card.selected .class-name {
+    color: var(--primary);
+}
+
+.class-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.class-features {
+    list-style: none;
+    margin: 16px 0 24px 0;
+    flex-grow: 1;
+}
+
+.class-features li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.class-features li::before {
+    content: '✓';
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* Timeline Tour Itinerary */
+.timeline-wrap {
+    position: relative;
+    padding-left: 28px;
+    margin-top: 24px;
+}
+
+.timeline-wrap::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background-color: var(--primary);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 3px solid var(--bg-white);
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.timeline-day {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.timeline-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ================= CART & CHECKOUT ================= */
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 36px;
+    width: 100%;
+    padding: 36px 0 64px 0;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.cart-table th {
+    background-color: var(--bg-light);
+    padding: 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-table td {
+    padding: 20px 16px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.cart-item-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.cart-item-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.cart-remove-btn {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cart-remove-btn:hover {
+    text-decoration: underline;
+}
+
+.checkout-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+    position: sticky;
+    top: 96px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.summary-row.total {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+    margin-top: 16px;
+}
+
+/* ================= MODAL & TOAST ================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 600px;
+    padding: 36px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toast-item {
+    background-color: var(--text-main);
+    color: var(--bg-white);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.toast-item.toast-success {
+    background-color: #065f46;
+    border-left: 5px solid var(--success);
+}
+
+.toast-item.toast-error {
+    background-color: #7f1d1d;
+    border-left: 5px solid var(--danger);
+}
+
+.toast-item.fade-out {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.4s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= FOOTER ================= */
+.main-footer {
+    background-color: #111827;
+    color: #e5e7eb;
+    padding: 64px 0 32px 0;
+    border-top: 4px solid var(--primary);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.footer-col h4 {
+    color: var(--bg-white);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+    .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .airlines-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .page-layout, .cart-layout {
+        grid-template-columns: 1fr;
+    }
+    .filter-sidebar {
+        position: static;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    .header-inner {
+        height: 70px;
+    }
+    .brand-logo img {
+        height: 44px;
+    }
+    .nav-menu {
+        display: none; /* Mobile menu drawer toggle */
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .tours-grid {
+        grid-template-columns: 1fr;
+    }
+    .airlines-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .flight-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .flight-pricing-box {
+        border-left: none;
+        padding-left: 0;
+        align-items: center;
+        border-top: 1px dashed var(--border-color);
+        padding-top: 16px;
+    }
+    .class-selection-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}

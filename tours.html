@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tour Du Lịch - Vietjet Travel</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= MAIN HEADER ================= -->
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" title="Vietjet Travel">
+                <img src="Images/VietJet-Air-logo.png" alt="Vietjet Logo">
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Trang Chủ</a>
+                <a href="flights.html" class="nav-link">Chuyến Bay</a>
+                <a href="tours.html" class="nav-link active">Tour Du Lịch</a>
+                <a href="cart.html" class="nav-link">Đơn Hàng</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="hotline-pill">
+                    <span>📞 Hotline: 1900 1886</span>
+                </div>
+                <a href="cart.html" class="cart-btn" title="Xem giỏ hàng">
+                    🛒
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= PAGE BANNER ================= -->
+    <div style="background-color: var(--primary-light); padding: 24px 0; border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <h1 style="font-size: 24px; font-weight: 800; color: var(--text-main);">
+                🏝️ Danh Sách Tour Du Lịch Trọn Gói
+            </h1>
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">
+                Tour du lịch bao gồm vé máy bay khứ hồi, khách sạn tiêu chuẩn 4-5 sao, xe đưa đón và lịch trình tham quan hấp dẫn
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= MAIN 2-COLUMN LAYOUT ================= -->
+    <main class="container">
+        <div class="page-layout">
+            
+            <!-- CỘT TRÁI: BỘ LỌC TOUR -->
+            <aside class="filter-sidebar">
+                <div class="filter-header">
+                    <h2 class="filter-title">Bộ Lọc Tour</h2>
+                    <button type="button" id="btn-reset-tour-filters" class="filter-reset-btn">Xóa Lọc</button>
+                </div>
+
+                <!-- 1. Sắp xếp giá -->
+                <div class="filter-group">
+                    <div class="filter-group-title">Sắp Xếp Giá Tour</div>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_sort" value="price_asc" checked>
+                        <span>Giá tăng dần (Thấp đến cao)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_sort" value="price_desc">
+                        <span>Giá giảm dần (Cao đến thấp)</span>
+                    </label>
+                </div>
+
+                <!-- 2. Hãng hàng không -->
+                <div class="filter-group">
+                    <div class="filter-group-title">Hãng Hàng Không Bay</div>
+                    <div id="tour-airline-filter-list">
+                        <!-- Render từ SQLite -->
+                    </div>
+                </div>
+
+                <!-- 3. Thời gian cất cánh -->
+                <div class="filter-group">
+                    <div class="filter-group-title">Thời Gian Cất Cánh (Giờ)</div>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_period" value="tat_ca" checked>
+                        <span>Tất cả các giờ</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_period" value="sang_som">
+                        <span>Sáng sớm (00:00 - 06:00)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_period" value="sang">
+                        <span>Buổi sáng (06:00 - 12:00)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_period" value="chieu">
+                        <span>Buổi chiều (12:00 - 18:00)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="radio" name="filter_tour_period" value="toi">
+                        <span>Buổi tối (18:00 - 24:00)</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- CỘT PHẢI: DANH SÁCH CÁC TOUR DU LỊCH -->
+            <section class="content-results">
+                <div class="content-list-header">
+                    <div class="results-count">
+                        Tìm thấy <span id="tours-count">0</span> tour du lịch
+                    </div>
+                </div>
+
+                <!-- Container danh sách tour -->
+                <div id="tours-list-container">
+                    <!-- Sẽ được render động từ SQLite -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="main-footer">
+        <div class="container footer-bottom">
+            <p>© 2026 Vietjet Travel. Toàn bộ bản quyền được bảo lưu.</p>
+            <p>Hệ thống đặt tour du lịch Vietjet Holidays</p>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/tours.js"></script>
+</body>
+</html>
